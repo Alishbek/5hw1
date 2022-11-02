@@ -1,5 +1,6 @@
 package com.example.a5hw1
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity(), CounterView {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         presenter.attachView(this)
-        presenter.setContext(this)
+//        presenter.setContext(this)
         onClick()
         textColor()
     }
@@ -36,6 +37,14 @@ class MainActivity : AppCompatActivity(), CounterView {
 
     override fun changeColor(color: Int) {
         binding.tvHello.setTextColor(color)
+    }
+
+    override fun changeCounterColor(color: Int) {
+        binding.tvCounter.setTextColor(color)
+    }
+
+    override fun toast() {
+        Toast.makeText(this, "Поздравляем! :)", Toast.LENGTH_SHORT).show()
     }
 
     private fun textColor() {

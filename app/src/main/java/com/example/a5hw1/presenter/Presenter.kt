@@ -12,7 +12,7 @@ class Presenter {
     val model = CounterModel()
     val colorModel = TextColorModel()
 
-    private lateinit var context: Context
+//    private lateinit var context: Context
 
 
     fun increment() {
@@ -33,15 +33,15 @@ class Presenter {
         view.changeColor(colorModel.getColor())
     }
 
-    fun setContext(context: Context) {
-        this.context = context
-    }
+//    fun setContext(context: Context) {
+//        this.context = context
+//    }
 
     fun toastOrGreenColor() {
         if (model.getCounter() == 10) {
-            Toast.makeText(context, "Поздравляем! :)", Toast.LENGTH_SHORT).show()
+            view.toast()
         } else if (model.getCounter() == 15) {
-            view.changeColor(colorModel.getGreenColor())
+            view.changeCounterColor(colorModel.getGreenColor())
         }
     }
 }
